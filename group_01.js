@@ -61,7 +61,10 @@ var statement = "";
 var newArray = [];
 for (var i = 0; i < employees.length; i++) {
   var statementArray = bonusCalculation(employees[i]);
-  statement = statementArray[0] + "'s" + " bonus percentage is " + statementArray[1] + "%. Making their annual salary " + statementArray[2] + " including the bonus of "+ statementArray[3] + ".\n";
+  statement = statementArray[0] + "'s" + " bonus percentage is " + statementArray[1] + "%. Making their annual salary " + Number(statementArray[2]).toLocaleString('en', {style: 'currency', currency: 'USD'}) + " including the bonus of " + statementArray[3].toLocaleString('en', {style: 'currency', currency: 'USD'}) + ".\n";
+  if (employees[i].reviewRating >= 4) {
+    statement += "Great work this year!";
+  }
   newArray.push(statement);
 }
 
